@@ -1,7 +1,7 @@
 # Steins;Gate RAG Chatbot
 
 <p align="center">
-  <img src="screenshots/sg-anime.webp" alt="Steins;Gate" width="600">
+  <img src="screenshots/sg-banner.jpg" alt="Steins;Gate" width="600">
 </p>
 
 A full-stack RAG (Retrieval Augmented Generation) chatbot application focused on answering questions about the Steins;Gate anime. Built with React, Express, Langchain, and OpenAI.
