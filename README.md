@@ -5,21 +5,19 @@ A full-stack RAG (Retrieval Augmented Generation) chatbot application focused on
 ## Screenshots
 
 ### Main Chat Interface
+
 ![Main Chat Interface](screenshots/main-interface.png)
-*Steins;Gate themed chat interface with CRT terminal aesthetics and animated divergence meter*
+_Steins;Gate themed chat interface with CRT terminal aesthetics and animated divergence meter_
 
 ### Chat Response with Sources
-![Chat Response](screenshots/chat-response.png)
-*RAG-powered responses with source citations and wiki images*
 
-### Empty State
-![Empty State](screenshots/empty-state.png)
-*Welcome screen with quick access queries*
+![Chat Response](screenshots/chat-response.png)
+_RAG-powered responses with source citations and wiki images_
 
 > **Note:** To add screenshots, take screenshots of your running application and save them in the `screenshots/` folder with the following names:
+>
 > - `main-interface.png` - Full chat interface with messages
 > - `chat-response.png` - Example of a response with sources and images
-> - `empty-state.png` - Initial welcome screen
 
 ## Features
 
@@ -32,12 +30,14 @@ A full-stack RAG (Retrieval Augmented Generation) chatbot application focused on
 ## Tech Stack
 
 ### Frontend
+
 - React 18 with Vite
 - Tailwind CSS for styling
 - Axios for API calls
 - React Markdown for formatted responses
 
 ### Backend
+
 - Express.js server
 - Langchain for RAG orchestration
 - OpenAI API for embeddings and chat
@@ -106,11 +106,13 @@ VITE_API_URL=http://localhost:3001/api
 Choose one of the following methods:
 
 **Option 1: Docker (Recommended)**
+
 ```bash
 docker run -p 8000:8000 chromadb/chroma
 ```
 
 **Option 2: Python**
+
 ```bash
 chroma run --host localhost --port 8000
 ```
@@ -129,6 +131,7 @@ npm run scrape
 ```
 
 This will:
+
 - Scrape the Steins;Gate Fandom wiki
 - Extract content from Characters, Terminology, and Episodes categories
 - Save raw data to `data/raw/`
@@ -143,6 +146,7 @@ npm run process
 ```
 
 This will:
+
 - Parse HTML and extract clean text
 - Split content into semantic chunks
 - Preserve metadata (source URLs, titles, sections)
@@ -156,12 +160,14 @@ npm run embed
 ```
 
 This will:
+
 - Generate embeddings using OpenAI's `text-embedding-3-small`
 - Store embeddings in ChromaDB
 - Test the vector store with a sample query
 - Expected time: 5-15 minutes depending on chunk count
 
 **All-in-one command:**
+
 ```bash
 npm run setup
 ```
@@ -175,6 +181,7 @@ Once data preparation is complete, you can start the application.
 ### Development Mode
 
 **Option 1: Run both frontend and backend together (Recommended)**
+
 ```bash
 # From root directory
 npm run dev
@@ -183,11 +190,13 @@ npm run dev
 **Option 2: Run separately**
 
 Terminal 1 - Backend:
+
 ```bash
 npm run dev:server
 ```
 
 Terminal 2 - Frontend:
+
 ```bash
 npm run dev:client
 ```
@@ -241,6 +250,7 @@ wiki/
 Send a message and get a RAG-powered response.
 
 **Request:**
+
 ```json
 {
   "message": "What is Reading Steiner?"
@@ -248,6 +258,7 @@ Send a message and get a RAG-powered response.
 ```
 
 **Response:**
+
 ```json
 {
   "id": "1234567890",
@@ -269,6 +280,7 @@ Send a message and get a RAG-powered response.
 Check server and service health.
 
 **Response:**
+
 ```json
 {
   "status": "ok",
@@ -301,6 +313,7 @@ Try asking questions like:
 **Error:** `Vector store initialization failed`
 
 **Solution:**
+
 1. Ensure ChromaDB is running: `docker run -p 8000:8000 chromadb/chroma`
 2. Check the CHROMA_URL in `.env` matches your ChromaDB instance
 3. Verify you've run the data preparation scripts
@@ -311,6 +324,7 @@ Try asking questions like:
 
 **Solution:**
 Run the data preparation scripts:
+
 ```bash
 cd server
 npm run scrape
@@ -323,6 +337,7 @@ npm run embed
 **Error:** `OPENAI_API_KEY environment variable is not set`
 
 **Solution:**
+
 1. Create `server/.env` file
 2. Add your OpenAI API key: `OPENAI_API_KEY=sk-...`
 3. Get a key at https://platform.openai.com/
@@ -332,6 +347,7 @@ npm run embed
 **Error:** Network error or CORS error
 
 **Solution:**
+
 1. Ensure backend is running on port 3001
 2. Check `client/.env` has `VITE_API_URL=http://localhost:3001/api`
 3. Verify CORS settings in `server/src/config/config.js`
@@ -341,6 +357,7 @@ npm run embed
 **Issue:** RAG responses take too long
 
 **Solutions:**
+
 1. Reduce number of retrieved chunks (edit `k` parameter in `rag.service.js`)
 2. Use a faster OpenAI model (change to `gpt-3.5-turbo` in config)
 3. Check your internet connection
@@ -357,10 +374,10 @@ Edit `server/src/services/rag.service.js`:
 const relevantDocs = await vectorStoreService.searchSimilar(query, 5);
 
 // LLM temperature (0.0 = deterministic, 1.0 = creative)
-temperature: 0.7
+temperature: 0.7;
 
 // Change LLM model
-modelName: 'gpt-4-turbo-preview'  // or 'gpt-3.5-turbo'
+modelName: "gpt-4-turbo-preview"; // or 'gpt-3.5-turbo'
 ```
 
 ### Adjusting Chunk Size
@@ -369,7 +386,7 @@ Edit `server/scripts/processDocuments.js`:
 
 ```javascript
 const splitter = new RecursiveCharacterTextSplitter({
-  chunkSize: 800,    // Tokens per chunk
+  chunkSize: 800, // Tokens per chunk
   chunkOverlap: 100, // Overlap between chunks
 });
 ```
@@ -402,15 +419,18 @@ The build output will be in `client/dist/`.
 ### OpenAI API Costs
 
 **One-time (data preparation):**
+
 - Embeddings: ~$0.50-$2.00 for 2000-3000 chunks
 - Processing: One-time cost
 
 **Per query:**
+
 - Embedding query: ~$0.0001
 - LLM response (GPT-4): ~$0.01-0.03 per query
 - LLM response (GPT-3.5): ~$0.001-0.003 per query
 
 **Cost optimization:**
+
 - Embeddings are cached in ChromaDB (one-time cost)
 - Use GPT-3.5-turbo for lower costs
 - Implement response caching for common queries
@@ -423,14 +443,15 @@ Edit `server/scripts/scrapeWiki.js`:
 
 ```javascript
 const CATEGORIES = [
-  { name: 'Characters', url: '/wiki/Category:Characters' },
-  { name: 'Terminology', url: '/wiki/Category:Terminology' },
-  { name: 'Episodes', url: '/wiki/Category:Episodes' },
-  { name: 'YourCategory', url: '/wiki/Category:YourCategory' }, // Add here
+  { name: "Characters", url: "/wiki/Category:Characters" },
+  { name: "Terminology", url: "/wiki/Category:Terminology" },
+  { name: "Episodes", url: "/wiki/Category:Episodes" },
+  { name: "YourCategory", url: "/wiki/Category:YourCategory" }, // Add here
 ];
 ```
 
 Then re-run data preparation:
+
 ```bash
 npm run scrape
 npm run process
@@ -442,6 +463,7 @@ npm run embed
 All React components are in `client/src/components/`. The app uses Tailwind CSS for styling.
 
 Main components:
+
 - `ChatInterface.jsx` - Main chat container
 - `MessageBubble.jsx` - Individual messages
 - `InputArea.jsx` - Message input
