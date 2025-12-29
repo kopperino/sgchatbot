@@ -5,19 +5,19 @@
 <h1 align="center">Steins;Gate RAG Chatbot</h1>
 
 <p align="center">
-  <a href="https://github.com/YOUR_USERNAME/steinsgate-chatbot/stargazers">
-    <img src="https://img.shields.io/github/stars/YOUR_USERNAME/steinsgate-chatbot?style=social" alt="GitHub stars">
+  <a href="https://github.com/kopperino/sgchatbot/stargazers">
+    <img src="https://img.shields.io/github/stars/kopperino/sgchatbot?style=social" alt="GitHub stars">
   </a>
-  <a href="https://github.com/YOUR_USERNAME/steinsgate-chatbot/network/members">
-    <img src="https://img.shields.io/github/forks/YOUR_USERNAME/steinsgate-chatbot?style=social" alt="GitHub forks">
+  <a href="https://github.com/kopperino/sgchatbot/network/members">
+    <img src="https://img.shields.io/github/forks/kopperino/sgchatbot?style=social" alt="GitHub forks">
   </a>
-  <a href="https://github.com/YOUR_USERNAME/steinsgate-chatbot/issues">
-    <img src="https://img.shields.io/github/issues/YOUR_USERNAME/steinsgate-chatbot" alt="GitHub issues">
+  <a href="https://github.com/kopperino/sgchatbot/issues">
+    <img src="https://img.shields.io/github/issues/kopperino/sgchatbot" alt="GitHub issues">
   </a>
-  <a href="https://github.com/YOUR_USERNAME/steinsgate-chatbot/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/YOUR_USERNAME/steinsgate-chatbot" alt="License">
+  <a href="https://github.com/kopperino/sgchatbot/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/kopperino/sgchatbot" alt="License">
   </a>
-  <img src="https://img.shields.io/github/last-commit/YOUR_USERNAME/steinsgate-chatbot" alt="Last commit">
+  <img src="https://img.shields.io/github/last-commit/kopperino/sgchatbot" alt="Last commit">
   <img src="https://img.shields.io/badge/GPT--5--nano-powered-green" alt="GPT-5-nano">
 </p>
 
