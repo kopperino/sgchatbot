@@ -14,11 +14,6 @@ _Steins;Gate themed chat interface with CRT terminal aesthetics and animated div
 ![Chat Response](screenshots/chat-response.png)
 _RAG-powered responses with source citations and wiki images_
 
-> **Note:** To add screenshots, take screenshots of your running application and save them in the `screenshots/` folder with the following names:
->
-> - `main-interface.png` - Full chat interface with messages
-> - `chat-response.png` - Example of a response with sources and images
-
 ## Features
 
 - **RAG-powered responses**: Uses semantic search to find relevant information from the Steins;Gate wiki
