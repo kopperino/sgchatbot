@@ -2,9 +2,44 @@
   <img src="screenshots/sg-banner.jpg" alt="Steins;Gate" width="600">
 </p>
 
-# Steins;Gate RAG Chatbot
+<h1 align="center">Steins;Gate RAG Chatbot</h1>
 
-A full-stack RAG (Retrieval Augmented Generation) chatbot application focused on answering questions about the Steins;Gate anime. Built with React, Express, Langchain, and OpenAI.
+<p align="center">
+  <a href="https://github.com/YOUR_USERNAME/steinsgate-chatbot/stargazers">
+    <img src="https://img.shields.io/github/stars/YOUR_USERNAME/steinsgate-chatbot?style=social" alt="GitHub stars">
+  </a>
+  <a href="https://github.com/YOUR_USERNAME/steinsgate-chatbot/network/members">
+    <img src="https://img.shields.io/github/forks/YOUR_USERNAME/steinsgate-chatbot?style=social" alt="GitHub forks">
+  </a>
+  <a href="https://github.com/YOUR_USERNAME/steinsgate-chatbot/issues">
+    <img src="https://img.shields.io/github/issues/YOUR_USERNAME/steinsgate-chatbot" alt="GitHub issues">
+  </a>
+  <a href="https://github.com/YOUR_USERNAME/steinsgate-chatbot/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/YOUR_USERNAME/steinsgate-chatbot" alt="License">
+  </a>
+  <img src="https://img.shields.io/github/last-commit/YOUR_USERNAME/steinsgate-chatbot" alt="Last commit">
+  <img src="https://img.shields.io/badge/GPT--5--nano-powered-green" alt="GPT-5-nano">
+</p>
+
+<p align="center">
+  A full-stack RAG (Retrieval Augmented Generation) chatbot application focused on answering questions about the Steins;Gate anime. Built with React, Express, Langchain, and OpenAI.
+</p>
+
+## 🎥 Demo
+
+<p align="center">
+  <video src="screenshots/demo.mp4" width="800" controls>
+    Your browser does not support the video tag.
+  </video>
+</p>
+
+> **Note:** To add your demo video:
+> 1. Record a video of the chatbot in action (recommended: 30-60 seconds)
+> 2. Save it as `screenshots/demo.mp4` (GitHub supports .mp4, .mov, .webm formats)
+> 3. Alternatively, upload to YouTube and replace the video tag with:
+>    ```html
+>    <a href="YOUR_YOUTUBE_URL"><img src="screenshots/video-thumbnail.png" alt="Demo Video" width="800"></a>
+>    ```
 
 ## Screenshots
 
