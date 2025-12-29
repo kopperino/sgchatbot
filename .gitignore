@@ -37,7 +37,3 @@ Thumbs.db
 
 # Claude Code
 .claude/
-
-# Screenshots (placeholder - add your own)
-screenshots/*.png
-!screenshots/.gitkeep
