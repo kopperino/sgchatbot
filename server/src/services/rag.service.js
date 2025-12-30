@@ -25,7 +25,9 @@ Instructions:
 - Write in a natural, flowing narrative style - tell a story rather than listing facts
 - Avoid bullet points, numbered lists, or fragmented information
 - Weave together details into cohesive paragraphs that read smoothly
-- When citing sources, incorporate them naturally into sentences using the format ([1] Source Name)
+- IMPORTANT: When citing sources, ONLY use the number in brackets like [1] or [2]. Do NOT make up source names.
+- ONLY cite sources that are explicitly provided in the context above
+- Place citations at the end of sentences where the information is used
 - Use descriptive language and connect ideas together
 - If discussing multiple aspects, transition smoothly between them
 - Keep responses engaging and conversational while remaining accurate
@@ -75,9 +77,12 @@ Answer:`);
         index === self.findIndex((s) => s.title === source.title && s.section === source.section)
       );
 
+      // Filter sources to only include those actually cited in the response
+      const citedSources = this.filterCitedSources(response.content, uniqueSources);
+
       return {
         answer: response.content,
-        sources: uniqueSources
+        sources: citedSources.length > 0 ? citedSources : uniqueSources // Fallback to all sources if none detected
       };
     } catch (error) {
       console.error('Error generating RAG response:', error.message);
@@ -139,14 +144,47 @@ Answer:`);
         index === self.findIndex((s) => s.title === source.title && s.section === source.section)
       );
 
+      // Filter sources to only include those actually cited in the response
+      const citedSources = this.filterCitedSources(fullResponse, uniqueSources);
+
       return {
         answer: fullResponse,
-        sources: uniqueSources
+        sources: citedSources.length > 0 ? citedSources : uniqueSources
       };
     } catch (error) {
       console.error('Error generating streaming response:', error.message);
       throw new Error('Failed to generate streaming response');
     }
+  }
+
+  // Helper method to filter sources based on actual citations in the response
+  filterCitedSources(responseText, sources) {
+    const citedIndices = new Set();
+
+    // Match all citation patterns: [1], [2], etc.
+    const citationPattern = /\[(\d+)\]/g;
+    let match;
+
+    while ((match = citationPattern.exec(responseText)) !== null) {
+      const citationNumber = parseInt(match[1]);
+      if (citationNumber > 0 && citationNumber <= sources.length) {
+        citedIndices.add(citationNumber - 1); // Convert to 0-based index
+      }
+    }
+
+    // Return only cited sources in their original order
+    if (citedIndices.size === 0) {
+      console.log('No citations found in response, returning all sources');
+      return sources;
+    }
+
+    const citedSources = Array.from(citedIndices)
+      .sort((a, b) => a - b)
+      .map(index => sources[index])
+      .filter(source => source !== undefined);
+
+    console.log(`Found ${citedIndices.size} cited sources out of ${sources.length} total`);
+    return citedSources;
   }
 }
 
