@@ -174,7 +174,7 @@ function ChatInterface() {
           {showScrollButton && (
             <button
               onClick={scrollToBottom}
-              className="fixed bottom-24 right-8 p-3 bg-green-600 hover:bg-green-500 text-white rounded-full shadow-lg shadow-green-500/50 transition-all hover:scale-110 z-10 border border-green-400/30"
+              className="fixed bottom-36 right-8 p-3 bg-green-600 hover:bg-green-500 text-white rounded-full shadow-lg shadow-green-500/50 transition-all hover:scale-110 z-10 border border-green-400/30"
               title="Scroll to bottom"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
