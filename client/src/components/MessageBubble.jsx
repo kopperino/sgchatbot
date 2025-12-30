@@ -16,48 +16,8 @@ function MessageBubble({ message }) {
     }
   };
 
-  // Convert inline citations like "([1] Title)" or "[1]" to markdown links
-  const processContent = (content, sources) => {
-    if (!sources || sources.length === 0) return content;
-
-    let processedContent = content;
-
-    // Pattern 1: Match "([1] Title text)" - parentheses with number and title
-    processedContent = processedContent.replace(/\((\[?)(\d+)\]?\s+([^)]+)\)/g, (match, bracket, num, title) => {
-      const index = parseInt(num) - 1;
-      if (index >= 0 && index < sources.length) {
-        const url = sources[index].url;
-        return `([[${num}] ${title}](${url}))`;
-      }
-      return match;
-    });
-
-    // Pattern 2: Match standalone "[1]" citations (not followed by opening parenthesis for markdown link)
-    processedContent = processedContent.replace(/\[(\d+)\](?!\()/g, (match, num) => {
-      const index = parseInt(num) - 1;
-      if (index >= 0 && index < sources.length) {
-        const url = sources[index].url;
-        return `[[${num}]](${url})`;
-      }
-      return match;
-    });
-
-    // Pattern 3: Match "(1)" - number in parentheses without brackets
-    processedContent = processedContent.replace(/\((\d+)\)(?!\()/g, (match, num) => {
-      const index = parseInt(num) - 1;
-      if (index >= 0 && index < sources.length) {
-        const url = sources[index].url;
-        return `[(${num})](${url})`;
-      }
-      return match;
-    });
-
-    return processedContent;
-  };
-
-  const content = !isUser && message.sources
-    ? processContent(message.content, message.sources)
-    : message.content;
+  // No inline citation processing needed - sources are displayed separately
+  const content = message.content;
 
   // Get unique images from sources
   const images = !isUser && message.sources
