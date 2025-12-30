@@ -28,7 +28,7 @@
 ## 🎥 Demo
 
 <p align="center">
-  <video src="assets/screenshots/demo.mp4" width="800" controls>
+  <video src="assets/videos/demo.mp4" width="800" controls>
     Your browser does not support the video tag.
   </video>
 </p>
@@ -37,12 +37,12 @@
 
 ### Main Chat Interface
 
-![Main Chat Interface](screenshots/main-interface.png)
+![Main Chat Interface](assets/screenshots/main-interface.png)
 _Steins;Gate themed chat interface with CRT terminal aesthetics and animated divergence meter_
 
 ### Chat Response with Sources
 
-![Chat Response](screenshots/chat-response.png)
+![Chat Response](assets/screenshots/chat-response.png)
 _RAG-powered responses with source citations and wiki images_
 
 ## Features
