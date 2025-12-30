@@ -27,11 +27,15 @@
 
 ## 🎥 Demo
 
-<p align="center">
-  <video src="assets/videos/demo.mp4" width="800" controls>
-    Your browser does not support the video tag.
-  </video>
-</p>
+https://github.com/user-attachments/assets/YOUR_VIDEO_ID_HERE
+
+> **To add your demo video:**
+> 1. Edit this README on GitHub (click the pencil icon)
+> 2. Drag and drop `demo.mp4` from `assets/videos/` directly into the editor above this note
+> 3. GitHub will automatically upload it and generate a URL like: `https://github.com/user-attachments/assets/...`
+> 4. Delete this instruction block after adding your video
+>
+> Alternatively, [download the demo video](assets/videos/demo.mp4) to view it locally.
 
 ## Screenshots
 
