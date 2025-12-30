@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="screenshots/sg-banner.jpg" alt="Steins;Gate" width="600">
+  <img src="assets/screenshots/sg-banner.jpg" alt="Steins;Gate" width="600">
 </p>
 
 <h1 align="center">Steins;Gate RAG Chatbot</h1>
@@ -28,18 +28,10 @@
 ## 🎥 Demo
 
 <p align="center">
-  <video src="screenshots/demo.mp4" width="800" controls>
+  <video src="assets/screenshots/demo.mp4" width="800" controls>
     Your browser does not support the video tag.
   </video>
 </p>
-
-> **Note:** To add your demo video:
-> 1. Record a video of the chatbot in action (recommended: 30-60 seconds)
-> 2. Save it as `screenshots/demo.mp4` (GitHub supports .mp4, .mov, .webm formats)
-> 3. Alternatively, upload to YouTube and replace the video tag with:
->    ```html
->    <a href="YOUR_YOUTUBE_URL"><img src="screenshots/video-thumbnail.png" alt="Demo Video" width="800"></a>
->    ```
 
 ## Screenshots
 
